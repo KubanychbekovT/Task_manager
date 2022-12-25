@@ -38,7 +38,7 @@ final goRouter = GoRouter(
           GoRoute(
               path: '/c',
               pageBuilder: (context, state) => NoTransitionPage(
-                child: ChatScreen(label: 'c'),
+                child: ChatScreen(label: 'C'),
               ),
           routes: [
             GoRoute(

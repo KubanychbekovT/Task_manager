@@ -128,6 +128,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
+  responsive_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: responsive_navigation_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.2.6"
   sky_engine:
     dependency: transitive
     description: flutter
