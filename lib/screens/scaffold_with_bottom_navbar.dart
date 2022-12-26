@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:systemforschool/screens/add_projects_screen.dart';
 import 'package:systemforschool/screens/chat_screen.dart';
 import 'package:systemforschool/screens/details_screen.dart';
 import 'package:systemforschool/screens/home_screen.dart';
@@ -34,7 +35,7 @@ class _ScaffoldWithBottomNavBarState extends State<ScaffoldWithBottomNavBar> {
   }
 final List<Widget> _mainContents = [
   HomeScreen(label: 'A'),
-  DetailsScreen(label: 'B'),
+  AddProjectsScreen(),
   ChatScreen(label: 'C'),
 ];
   @override
@@ -80,7 +81,6 @@ final List<Widget> _mainContents = [
                     label: Text('Section C')),
               ],
             ),
-
           Expanded(child: _mainContents[_currentIndex]),
         ],
       )

@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:systemforschool/screens/add_projects_screen.dart';
 import 'package:systemforschool/screens/login_screen.dart';
 import 'package:systemforschool/screens/scaffold_with_bottom_navbar.dart';
 import 'package:systemforschool/screens/chat_screen.dart';
@@ -48,7 +49,7 @@ final goRouter = GoRouter(
 
           GoRoute(
               path: '/b',
-              pageBuilder: (context, state) => NoTransitionPage(child: HomeScreen(label: 'B',),
+              pageBuilder: (context, state) => NoTransitionPage(child: AddProjectsScreen(),
               ),
             routes: [
               GoRoute(
