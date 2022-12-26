@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
-import 'package:systemforschool/screens/ScaffoldWithBottomNavBar.dart';
+import 'package:systemforschool/screens/login_screen.dart';
+import 'package:systemforschool/screens/scaffold_with_bottom_navbar.dart';
 import 'package:systemforschool/screens/chat_screen.dart';
 import 'package:systemforschool/screens/details_screen.dart';
 import 'package:systemforschool/screens/home_screen.dart';
@@ -48,6 +49,13 @@ final goRouter = GoRouter(
           ],
           ),
         ]
+      ),
+      GoRoute(
+        path: '/login',
+        pageBuilder: (context, state) => NoTransitionPage(
+          child: LoginScreen(),
+        ),
+
       ),
     ]
 );

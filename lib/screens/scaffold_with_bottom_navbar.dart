@@ -37,9 +37,6 @@ final List<Widget> _mainContents = [
   DetailsScreen(label: 'B'),
   ChatScreen(label: 'C'),
 ];
-
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -57,7 +54,7 @@ final List<Widget> _mainContents = [
           if (MediaQuery.of(context).size.width >= 640)
             NavigationRail(
                 minWidth: 55.0,
-                selectedIndex: _selectedIndex,
+                selectedIndex: _currentIndex,
             onDestinationSelected: (index) => _onItemTapped(context, index),
             labelType: NavigationRailLabelType.all,
               leading: Column(
@@ -71,7 +68,7 @@ final List<Widget> _mainContents = [
               destinations: [
                 NavigationRailDestination(
                   icon: Icon(Icons.home),
-                  label: Text('Scetion A',
+                  label: Text('Section A',
                   ),
                 ),
                 NavigationRailDestination(
