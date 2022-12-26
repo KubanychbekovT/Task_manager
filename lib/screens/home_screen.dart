@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(label),
+        child:ElevatedButton(onPressed: () { FirebaseAuth.instance.signOut(); },
+        child: Text("Log out"),),
       ),
     );
   }
