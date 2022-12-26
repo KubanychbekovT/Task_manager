@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "137493865426",
-    "project_id": "taskmanager-fc6ca",
-    "storage_bucket": "taskmanager-fc6ca.appspot.com"
+    "project_number": "82807448949",
+    "project_id": "taskmanager-39e18",
+    "storage_bucket": "taskmanager-39e18.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:137493865426:android:c26a2a2307236569185e0b",
+        "mobilesdk_app_id": "1:82807448949:android:87d4cbaa7201328c805f3c",
         "android_client_info": {
           "package_name": "com.example.systemforschool"
         }
       },
       "oauth_client": [
         {
-          "client_id": "137493865426-2laf09ifmbujuaaa2qqqcd5mfnf3v2vc.apps.googleusercontent.com",
+          "client_id": "82807448949-akncudlchtn5e9epcr923jd8g5fu3ji7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDRtBxATGYTDFaAVEFIm5ifYftOrpveBVM"
+          "current_key": "AIzaSyCNs27EkDRu_SrLh1qlItGfyoSbwyxIJPM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "137493865426-2laf09ifmbujuaaa2qqqcd5mfnf3v2vc.apps.googleusercontent.com",
+              "client_id": "82807448949-akncudlchtn5e9epcr923jd8g5fu3ji7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
