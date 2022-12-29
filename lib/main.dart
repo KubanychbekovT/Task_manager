@@ -1,15 +1,19 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:systemforschool/firebase_options.dart';
-import 'package:systemforschool/router_config.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:systemforschool/utils/firebase_options.dart';
+import 'package:systemforschool/view/blocs/task/task_bloc.dart';
+import 'package:systemforschool/view/screens/scaffold_with_bottom_navbar.dart';
 
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
+    //  name: "School System",
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-      App()
+      const App()
   );
 }
 
@@ -18,9 +22,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: goRouter,
-      debugShowCheckedModeBanner: false,
+    return BlocProvider(
+      create: (context) => TaskBloc(),
+      child: MaterialApp(
+        home: ScaffoldWithBottomNavBar(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }

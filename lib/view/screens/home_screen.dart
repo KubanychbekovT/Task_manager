@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:systemforschool/utils/constants.dart';
+
+import '../blocs/task/task_bloc.dart';
+
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key, required this.label}) : super(key: key);
-
   String label;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext contextt) {
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -33,6 +38,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+
           ],
         ),
       ),
