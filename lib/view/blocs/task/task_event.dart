@@ -6,3 +6,4 @@ abstract class TaskEvent {
 class InitEvent extends TaskEvent {}
 
 class LoadTasksEvent extends TaskEvent {}
+class EditingStartedEvent extends TaskEvent {}

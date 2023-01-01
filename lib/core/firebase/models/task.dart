@@ -8,11 +8,14 @@ class Task {
   Task({
     required this.name,
     required this.tasks,
+    required this.owner
   });
+  DocumentReference? owner;
   DocumentReference? reference;
 
   factory Task.fromJson(Map<String, dynamic> json) => Task(
       name: json['name'] as String,
+      owner:json['owner'] as DocumentReference<Object>,
       tasks: (json['tasks'] == null ? <TaskItem>[]: json['tasks'] as List<dynamic>).map((e) => TaskItem.fromJson(e)).toList()
 
   ) ;
