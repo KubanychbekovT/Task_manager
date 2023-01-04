@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:systemforschool/app.dart';
 import 'package:systemforschool/core/firebase/models/task_item.dart';
-import 'package:systemforschool/core/firebase/services/tasks_service.dart';
+import 'package:systemforschool/core/firebase/services/firebase_service.dart';
 import 'package:systemforschool/utils/constants.dart';
 import 'package:systemforschool/utils/styles.dart';
 import 'package:systemforschool/view/blocs/task/task_bloc.dart';

@@ -15,7 +15,7 @@ class NavbarScreen extends StatefulWidget {
 class _NavbarScreenState extends State<NavbarScreen> {
   int currentIndex=0;
 final List<Widget> _mainContents = [
-  HomeScreen(label: 'A'),
+  HomeScreen(),
   MyProjectsScreen(),
   ChatScreen(label: 'C'),
 ];

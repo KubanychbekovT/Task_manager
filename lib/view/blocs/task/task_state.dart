@@ -12,8 +12,15 @@ class TasksLoaded extends TaskState {
   TasksLoaded(this.tasks);
 }
 class EditingStartedState extends TaskState{}
+class LoadOwnerTasksState extends TaskState{
+  Query<Task> tasksCollection;
+  LoadOwnerTasksState(this.tasksCollection);
+}
 class TasksStreamLoaded extends TaskState {
-  CollectionReference<Task> tasksCollection;
+  Query<Task> tasksCollection;
   TasksStreamLoaded(this.tasksCollection);
 }
-
+class UsersStreamLoaded extends TaskState {
+  Query<User> usersCollection;
+  UsersStreamLoaded(this.usersCollection);
+}

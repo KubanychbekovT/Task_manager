@@ -13,7 +13,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(BlocProvider(
-    create: (context) => TaskBloc()..add(LoadTasksEvent()),
+    create: (context) => TaskBloc()..add(LoadTasksEvent())..add(LoadUsersEvent()),
     child: const MaterialApp(home: App(),debugShowCheckedModeBanner: false,),
   ));
 }

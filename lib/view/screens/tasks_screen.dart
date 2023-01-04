@@ -19,6 +19,7 @@ class MyProjectsDetailScreen extends StatelessWidget {
   Task task;
   @override
   Widget build(BuildContext context) {
+    context.read<TaskBloc>().add(LoadTasksEvent());
     return CustomScaffold(
       actions: [   PopupMenuButton<int>(
         onSelected: (index){
