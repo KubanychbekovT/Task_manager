@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:systemforschool/core/firebase/models/task.dart';
 import 'package:systemforschool/core/firebase/models/user.dart';
 import 'package:systemforschool/utils/styles.dart';
 import 'package:systemforschool/view/blocs/task/task_bloc.dart';
@@ -11,7 +13,6 @@ import '../widgets/project_card.dart';
 class UserProjectsScreen extends StatelessWidget {
   const UserProjectsScreen(this.user, {Key? key}) : super(key: key);
   final User user;
-
   @override
   Widget build(BuildContext context) {
     context.read<TaskBloc>().add(LoadOwnerTasksEvent(user.reference));
@@ -28,15 +29,43 @@ class UserProjectsScreen extends StatelessWidget {
                 builder: (context, snapshot) {
                   if ((snapshot.data?.docs) != null &&
                       snapshot.data!.docs.isNotEmpty) {
-                    return Column(
-                      children: [
-                        for (var document in snapshot.data!.docs) ...[
-                          ProjectCard(
-                              task: document.data(),
-                              documentReference: document.reference),
-                        ]
-                      ],
-                    );
+    return LayoutBuilder(builder: (context, constraints)
+    {
+      List<Task> projectList=List.generate(snapshot.data!.docs.length, (index) => snapshot.data!.docs[index].data());
+      return GridView.builder(
+          gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount:
+            constraints.maxWidth > 700 ? 4 : 2,
+            mainAxisSpacing: 10,
+            mainAxisExtent: 256,
+            crossAxisSpacing: 10,
+          ),
+          itemCount: projectList.length,
+          itemBuilder: (context, index) {
+            bool isMember=false;
+            for(var member in projectList[index].members){
+              if(member=="users/${FirebaseAuth.instance.currentUser!.uid}"){
+                isMember=true;
+                break;
+              }
+            }
+            return ProjectCard(
+              isEditing: projectList[index].name.isEmpty,
+              task: projectList[index],
+              isMember: isMember,
+            );
+          });
+    });
+                    // return Column(
+                    //   children: [
+                    //     // for (var document in snapshot.data!.docs) ...[
+                    //     //   ProjectCard(
+                    //     //       task: document.data(),
+                    //     //       ),
+                    //     // ]
+                    //   ],
+                    // );
                   } else {
                     return Center(
                       child: Column(

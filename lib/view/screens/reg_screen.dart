@@ -62,10 +62,18 @@ class RegScreen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: (){
+                List<String> caseSearchList = [];
+                String temp = "";
+                for (int i = 2; i < editingController.text.length; i++) {
+                  temp = temp + editingController.text[i].toLowerCase();
+                  caseSearchList.add(temp);
+                }
                 FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.uid)
                     .set({
                   'name': editingController.text, // John Doe
-                  'email': FirebaseAuth.instance.currentUser!.email
+                  'email': FirebaseAuth.instance.currentUser!.email,
+                  'nameSearch': caseSearchList,
+
                 });
                 Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>App()),(Route<dynamic> route) => false);
               },

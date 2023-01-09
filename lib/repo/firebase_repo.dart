@@ -8,8 +8,15 @@ class FirebaseRepoImp {
   Query<Task> getStreamTasks(){
     return _firebaseService.getStreamTasks();
   }
+  Query<Task> getStreamOwnerTasks(DocumentReference<Object?>? documentReference){
+    return _firebaseService.getStreamOwnerTasks(documentReference);
+  }
+
   Query<User> getStreamUsers(){
     return _firebaseService.getStreamUsers();
+  }
+  Query<User> getStreamSearchedUsers(String query){
+    return _firebaseService.getStreamSearchedUsers(query);
   }
 }
 

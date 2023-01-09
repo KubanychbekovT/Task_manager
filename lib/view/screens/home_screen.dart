@@ -9,8 +9,7 @@ import 'package:systemforschool/view/widgets/user_card.dart';
 import '../blocs/task/task_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
-
+  const HomeScreen({Key? key}) : super(key: key);
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -20,7 +19,14 @@ class _HomeScreenState extends State<HomeScreen> {
   List<QueryDocumentSnapshot<User>> userSearchList = [];
 
   @override
+  void initState() {
+    print("LoadUsers");
+    context.read<TaskBloc>().add(LoadUsersEvent());
+    super.initState();
+  }
+  @override
   Widget build(BuildContext contextt) {
+
     return CustomScaffold(
       appBarTitle: "Главная",
       body: Column(
@@ -33,12 +39,15 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             width: double.infinity,
             child: TextField(
+
               onChanged: (text) {
                 filterSearchResults(text);
               },
+
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.symmetric(horizontal: 15),
                 hintText: "Поиск...",
+                prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(color: Colors.black),
@@ -54,9 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
             listener: (context, state) {
               if (state is UsersStreamLoaded) {
                 state.usersCollection.snapshots().listen((event) {
-                  print(event.docs.first.data().name);
                   userList = event.docs;
                   userSearchList = event.docs;
+                  setState(() {
+                  });
                 });
               }
             },
@@ -82,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: ListView.builder(
                         itemCount: userSearchList.length,
                         itemBuilder: (context, index) {
-                          return UserCard(userSearchList[index].data());
+                          return UserCard(userSearchList[index].data(),isMemberScreen: false,);
                         }),
                   ),
           )

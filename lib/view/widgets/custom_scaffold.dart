@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:systemforschool/utils/constants.dart';
 import 'package:systemforschool/view/widgets/custom_app_bar.dart';
 
@@ -26,7 +27,7 @@ class CustomScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(242, 244, 255, 1),
+      backgroundColor: const Color.fromRGBO(242, 244, 255, 1),
       appBar: useAppBar?CustomAppBar(textTitle: appBarTitle,
         actions: actions,
       ):null,
@@ -41,6 +42,7 @@ class CustomScaffold extends StatelessWidget {
         )
             : body,
       ),
+
       bottomNavigationBar: bottomNavigationBar,
       floatingActionButton: floatingActionButton,
     );

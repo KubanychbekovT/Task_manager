@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:systemforschool/utils/constants.dart';
+import 'package:systemforschool/view/screens/profile_screen.dart';
 import 'package:systemforschool/view/screens/projects_screen.dart';
 import 'package:systemforschool/view/widgets/custom_scaffold.dart';
 
@@ -17,7 +18,7 @@ class _NavbarScreenState extends State<NavbarScreen> {
 final List<Widget> _mainContents = [
   HomeScreen(),
   MyProjectsScreen(),
-  ChatScreen(label: 'C'),
+  ProfileScreen(),
 ];
   @override
   Widget build(BuildContext context) {

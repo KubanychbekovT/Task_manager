@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:systemforschool/core/firebase/models/task_item.dart';
 import 'package:systemforschool/core/firebase/services/firebase_service.dart';
@@ -41,6 +42,9 @@ class ItemScreen extends StatelessWidget {
                 controller: editingController,
                 keyboardType: TextInputType.multiline,
                 minLines: 1,
+                inputFormatters: [
+                  LengthLimitingTextInputFormatter(20),
+                ],
                 maxLines: 8,
                 cursorColor: Colors.black26,
                 style: TextStyle(
@@ -70,6 +74,7 @@ class ItemScreen extends StatelessWidget {
                   if(task==null){
                     FirebaseFirestore.instance.collection("tasks")
                         .add({
+                      'members':[document.path],
                       'name': editingController.text, // John Doe
                       'owner': document, // Stokes and Sons
                       'tasks': [] // 42
@@ -87,7 +92,6 @@ class ItemScreen extends StatelessWidget {
                   }else{
                   }
                 }
-                context.read<TaskBloc>().add(LoadTasksEvent());
                 Navigator.pop(context);
               },
               child: Container(

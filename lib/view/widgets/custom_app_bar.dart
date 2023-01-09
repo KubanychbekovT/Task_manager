@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:systemforschool/utils/constants.dart';
 
 class CustomAppBar extends AppBar {
@@ -24,21 +25,23 @@ class _CustomAppBarState extends State<CustomAppBar> {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(0),
-        child: AppBar(
-          backgroundColor: AppConstants.primaryColor,
-          actions: widget.actions,
-          // shape: const RoundedRectangleBorder(
-          //   borderRadius: BorderRadius.vertical(
-          //     bottom: Radius.circular(8),
-          //   ),
-          // ),
-          // leading: IconButton(
-          //   onPressed: () {},
-          //   icon: Icon(widget.leadingIconData),
-          // ),
-          elevation: 0,
-          titleTextStyle: widget.textStyle,
-          title: Text(widget.textTitle ?? 'Task-manager'),
+        child: Container(
+          height: 46,
+          child: AppBar(
+            systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: AppConstants.primaryColor,statusBarIconBrightness: Brightness.light,statusBarBrightness: Brightness.dark,),
+            backgroundColor: AppConstants.primaryColor,
+            actions: widget.actions,
+            // shape: const RoundedRectangleBorder(
+            //   borderRadius: BorderRadius.all(Radius.circular(8)),
+            // ),
+            // leading: IconButton(
+            //   onPressed: () {},
+            //   icon: Icon(widget.leadingIconData),
+            // ),
+            elevation: 0,
+            titleTextStyle: widget.textStyle,
+            title: Text(widget.textTitle ?? 'Task-manager'),
+          ),
         ),
       ),
     );
